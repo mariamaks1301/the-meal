@@ -1,26 +1,23 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "../../utils/axios";
+import axios from '../../utils/axios';
 
-export const getRandomMeal = createAsyncThunk(
-    'random/getRandomMeal',
-    async(_, {rejectWithValue}) => {
+export const getMealsByTitle  = createAsyncThunk(
+    'searchTitle/getMealsByTitle',
+    async(title, {rejectWithValue}) => {
         try {
 
-            const res = await axios('random.php')
+          const res = await axios(`search.php?s=${title}`)
 
-            //  if(res.status !== 200){
-            //      throw new Error('Can\'t fetch random meal')
-            //  }
-
-            return  res.data.meals
+            return res.data.meals
             
         } catch (error) {
             return rejectWithValue(error.message)
+            
         }
     },
     { 
         condition: (_, {getState}) => {
-            const {loading} = getState().random
+            const {loading} = getState().searchTitle
 
             if(loading === 'loading'){
                 return false
@@ -32,25 +29,24 @@ export const getRandomMeal = createAsyncThunk(
 const initialState = {
     data: [],
     status: 'idle',
-    error: null
+    error: ''
 }
 
-
-const randomSlice = createSlice({
-    name: 'random',
+const searchTitleSlice = createSlice({
+    name: 'searchTitle',
     initialState,
     reducers: {},
-     extraReducers: (builder) => {
+    extraReducers: (builder) => {
         builder
-            .addCase(getRandomMeal.pending, (state, action)=> {
+            .addCase(getMealsByTitle.pending, (state, action)=> {
                 state.status = 'loading'
                 state.error = null
             })
-            .addCase(getRandomMeal.rejected, (state, action)=> {
+            .addCase(getMealsByTitle.rejected, (state, action)=> {
                 state.error = action.payload
                 state.status = 'error'
             })
-            .addCase(getRandomMeal.fulfilled, (state, action)=> {
+            .addCase(getMealsByTitle.fulfilled, (state, action)=> {
                 state.data = action.payload
                 state.status = 'done'
             })
@@ -59,4 +55,6 @@ const randomSlice = createSlice({
 
 })
 
-export const randomReducer = randomSlice.reducer;
+export const searchTitleReducer = searchTitleSlice.reducer;
+
+export const selectSearchTitle = ((state)=> state.searchTitle)

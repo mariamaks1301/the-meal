@@ -14,7 +14,8 @@ const RandomMeal = () => {
 
     const handleRandomMeal = async () => {
         await dispatch( getRandomMeal())
-        return dispatch(getRecipeById(data[0].idMeal))  
+        return await dispatch(getRecipeById(data[0].idMeal))  
+        
     }
 
 

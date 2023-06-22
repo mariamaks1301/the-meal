@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from "../../utils/axios";
 
 export const getMealsByIngridient = createAsyncThunk(
     'ingridient/getMealsByIngridient',
     async(ingridient, {rejectWithValue}) => {
         try {
-            const res = await axios(`https://www.themealdb.com/api/json/v1/1/filter.php?i=salmon`)
+            const res = await axios(`/filter.php?i=${ingridient}`)
          
-            return res.data.meals
+            return await res.data.meals
             
         } catch (error) {
             return rejectWithValue(error.message)

@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import CategoryMeals from './pages/CategoryMeals/CategoryMeals';
 import Recipe from './pages/Recipe/Recipe';
 import IngridientsMeals from './pages/IngridientsMeals/IngridientsMeals';
+import Catalog from './pages/Catalog/Catalog';
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/catalog/:name" element={<CategoryMeals/>}/>
            <Route path="/recipe/:id" element={<Recipe/>}/> 
-           <Route path="/catalog/:ingridient" element={<IngridientsMeals/>}/> 
+           <Route path="/catalog/ingridient/:ingridient" element={<IngridientsMeals/>}/> 
+           <Route path="/catalog/search/:title" element={<Catalog/>}/>
 
 
         </Route>

@@ -16,6 +16,7 @@ import { recipeReducer } from "./reducers/recipe";
 import { areaReducer } from "./reducers/area";
 import { randomReducer } from "./reducers/random";
 import { ingridientReducer } from "./reducers/ingridient";
+import { searchTitleReducer } from "./reducers/searchTitle";
 
 
 const persistConfig = {
@@ -31,6 +32,7 @@ const persistConfig = {
     area: areaReducer,
     random: randomReducer,
     ingridient: ingridientReducer,
+    searchTitle: searchTitleReducer,
     
   })
 

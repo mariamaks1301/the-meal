@@ -7,7 +7,7 @@ export const getAllAreas = createAsyncThunk(
         try {
             const res =  await axios(`list.php?a=list`)
 
-            return await res.data.meals
+            return res.data.meals
             
         } catch (error) {
             return rejectWithValue(error.message)

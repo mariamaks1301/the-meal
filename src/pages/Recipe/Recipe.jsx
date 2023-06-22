@@ -10,7 +10,7 @@ const Recipe = () => {
      console.log(id)
 
     useEffect(()=>{
-        // dispatch(getRecipeById(id))
+        dispatch(getRecipeById(id))
     }, [id])
 
 
@@ -26,7 +26,7 @@ const Recipe = () => {
             {
                 status === 'done' ?
                  recipe.map(item => (
-                    <div className='recipe'>
+                    <div key={item.idMeal} className='recipe'>
                     <span className='recipe__title content'>{item.strCategory} / Cuisine {item.strArea} / {item.strMeal}</span>
                     <div className='recipe__top '>
                         <div className='row content'>

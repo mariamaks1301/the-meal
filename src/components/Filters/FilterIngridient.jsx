@@ -10,11 +10,11 @@ const FilterIngridient = () => {
     const dispatch = useDispatch();
     const [ingridient, setIngridient] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         if(e.key === 'Enter'){
-            dispatch(getMealsByIngridient(ingridient));
+            await dispatch(getMealsByIngridient(ingridient));
             console.log(e.key)
-            navigate(`/catalog/${ingridient}`)
+            navigate(`/catalog/ingridient/${ingridient}`)
         }
         
     }

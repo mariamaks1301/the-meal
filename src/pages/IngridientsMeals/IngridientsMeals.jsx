@@ -10,9 +10,11 @@ const IngridientsMeals = () => {
     const dispatch = useDispatch();
     const {data, status} = useSelector((state)=> state.ingridient);
 
-    // useEffect(()=>{
-    //     dispatch(getMealsByIngridient(ingridient))
-    // },[ingridient])
+
+
+     useEffect(()=>{
+         dispatch(getMealsByIngridient(ingridient))
+     },[ingridient])
 
 
     return (

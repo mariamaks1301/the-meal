@@ -11,11 +11,8 @@ const CategoryMeals = () => {
     // const dispatch = useDispatch();
     const {name} = useParams();
 
-    const {data, status} = useSelector((state) => state.category)
+    const {data, status} = useSelector((state) => state.category);
    
-    // useEffect(()=> {
-    //      dispatch(getFilteredCategory(name))
-    // }, [])
 
     return (
         <div className='content '>
