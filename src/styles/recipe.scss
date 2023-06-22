@@ -1,0 +1,56 @@
+.recipe{
+    background: #fff;
+    &__block{
+        position: relative
+    }
+    &__back{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        
+        position: absolute;
+        top: 2rem;
+        left: 5rem;
+
+    }
+
+    
+    &__top{
+        padding-top: 1rem;
+        background: black;
+    }
+    &__img{
+        max-height: 500px;
+    }
+    &__right{
+        width: 50%;
+        padding: 1rem 3rem;
+    }
+    &__row{
+        border-bottom: 1px solid #FFFFFF25;
+
+    }
+    &__ingr{
+        width: 50%;
+    }
+    &__measure{
+        width: 50%;
+    }
+    &__title{
+        font-size: 2rem;
+        padding: 1.5rem 0 1rem;
+        color: rgb(28, 144, 38);
+        text-align: center;  
+        display: block;
+
+    }
+    &__subtitle{
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    &__desc{
+        max-width: 900px;
+        margin: 0 auto;
+    }
+}
