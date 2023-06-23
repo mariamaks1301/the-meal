@@ -8,7 +8,12 @@ export const getMealsByTitle  = createAsyncThunk(
 
           const res = await axios(`search.php?s=${title}`)
 
-            return res.data.meals
+          if(res.statusText !== ''){
+            throw new Error('Can\'t fetch data by search Title')
+          }
+        console.log(res)
+        console.log(res.data.meals)
+        return res.data.meals
             
         } catch (error) {
             return rejectWithValue(error.message)
@@ -55,6 +60,6 @@ const searchTitleSlice = createSlice({
 
 })
 
-export const searchTitleReducer = searchTitleSlice.reducer;
+export const searchTitleReducer = searchTitleSlice.reducer; 
 
 export const selectSearchTitle = ((state)=> state.searchTitle)

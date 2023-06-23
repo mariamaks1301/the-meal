@@ -1,16 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import {  useSelector } from 'react-redux';
-// import { getFilteredCategory } from '../../redux/reducers/category';
 import Card from '../../components/Card';
 
 
 
 const CategoryMeals = () => {
 
-    // const dispatch = useDispatch();
     const {name} = useParams();
-
     const {data, status} = useSelector((state) => state.category);
    
 

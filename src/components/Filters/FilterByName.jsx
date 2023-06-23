@@ -11,38 +11,45 @@ const FilterByName = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const {data, status, error} = useSelector((state)=> state.searchTitle);
+    const {data=[], status, error} = useSelector((state)=> state.searchTitle);
 
-    
+ 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await dispatch(getMealsByTitle(title));
-        if(data.length === 1){
-              navigate(`/recipe/${data[0].idMeal}`)
-              e.target.reset();
-        }else{
-                navigate(`/catalog/search/${title}`)
-                e.target.reset(); 
+        if(title.length){
+            await dispatch(getMealsByTitle(title))
         }
-             
+        if(data.length === 1){
+             return navigate(`/recipe/${data[0].idMeal}`)
+        }
+        if(data.length > 1){
+            return navigate(`/catalog/search/${title}`)
+        }
+        if(data === null){
+            return (<h2>Meleals with {title} main absent</h2>)
+        }         
     }
 
+        
+             
    
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='title-field'>
             <DebounceInput
                 minLength={2}
-                debounceTimeout={500}
-       
+                debounceTimeout={800}
+                
+                
                 type="search" 
                 placeholder='Filter by title'
                 value={title}
                 onChange={(e)=> setTitle(e.target.value)}
                
-            />
-            <button>Send</button>
-            
+            />  
+            <p className='reset-title'><i onClick={()=> setTitle('')} className="material-icons black-text">close</i></p>
+            <button className='btn'>Submit</button>
+
         </form>
     );
 };

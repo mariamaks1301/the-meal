@@ -1,28 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from '../../utils/axios';
 
-export const getAllAreas = createAsyncThunk(
-    'area/getAllArea',
-    async(_, {rejectWithValue})=>{
-        try {
-            const res =  await axios(`list.php?a=list`)
-
-            return res.data.meals
-            
-        } catch (error) {
-            return rejectWithValue(error.message)
-        }
-    } 
-)
-
 export const getMealsByArea = createAsyncThunk(
-    'area/getMealsByArea',
+    'searchArea/getMealsByArea',
     async(area, {rejectWithValue})=>{
         try {
             const res =  await axios(`filter.php?a=${area}`)
             
-        
-
             return res.data.meals
             
         } catch (error) {
@@ -37,21 +21,21 @@ const initialState = {
     error: null
 }
 
-const areaSlice = createSlice({
-    name: 'area',
+const searchAreaSlice = createSlice({
+    name: 'searchArea',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getAllAreas.pending, (state, action)=> {
+            .addCase(getMealsByArea.pending, (state, action)=> {
                 state.status = 'loading'
                 state.error = null
             })
-            .addCase(getAllAreas.rejected, (state, action)=> {
+            .addCase(getMealsByArea.rejected, (state, action)=> {
                 state.error = action.payload
                 state.status = 'error'
             })
-            .addCase(getAllAreas.fulfilled, (state, action)=> {
+            .addCase(getMealsByArea.fulfilled, (state, action)=> {
                 state.data = action.payload
                 state.status = 'done'
             })
@@ -59,5 +43,4 @@ const areaSlice = createSlice({
     }
 })
 
-export const areaReducer = areaSlice.reducer;
-
+export const searchAreaReducer = searchAreaSlice.reducer;

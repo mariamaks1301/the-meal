@@ -6,8 +6,12 @@ export const getMealsByIngridient = createAsyncThunk(
     async(ingridient, {rejectWithValue}) => {
         try {
             const res = await axios(`/filter.php?i=${ingridient}`)
+
+            // if(res.status !== ''){
+            //     throw new Error('Can\t fetch meals by ingridient')
+            // }
          
-            return await res.data.meals
+            return res.data.meals
             
         } catch (error) {
             return rejectWithValue(error.message)

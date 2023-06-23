@@ -11,7 +11,7 @@ const Recipe = () => {
 
     useEffect(()=>{
         dispatch(getRecipeById(id))
-    }, [id])
+    }, [id, dispatch])
 
 
     const {recipe = [], status, error } = useSelector((state) => state.recipe)
@@ -21,7 +21,7 @@ const Recipe = () => {
     return (
         <div className='recipe__block'>
             <div onClick={()=> navigate(-1)} className='black-text recipe__back'>
-                <i class="material-icons #4caf50 green">arrow_back</i> Go Back
+                <i className="material-icons #4caf50 green">arrow_back</i> Go Back
             </div>
             {
                 status === 'done' ?

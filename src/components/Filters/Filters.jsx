@@ -13,7 +13,7 @@ const Filters = () => {
             <FilterArea/>
             <FilterByName/>
             <FilterIngridient/>
-            <RandomMeal/>
+            
         </div>
         </div>
     );

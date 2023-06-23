@@ -1,30 +1,30 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import Card from '../../components/Card';
 
 
-const Catalog = () => {
+const AreaCatalog = () => {
 
-    const {title} = useParams();
+    const {area} = useParams();
     const dispatch = useDispatch();
 
-    const {data, status} = useSelector((state) => state.searchTitle);
+
+    const {data, status, error} = useSelector((state)=> state.searchArea);
+
    
-
-
-    if(status=== 'done' && data === null){
-        return <h2>Meleals with {title} main absent</h2>
+    if(status === 'done'){
+        console.log(data)
     }
     
 
         return (
             <div className='content'>
-            <h2 className='title'>{title} reciepts</h2>
+            <h2 className='title'>{area} reciepts</h2>
              <div className='list'>
                 {
                     status === 'done' ? 
-                        data.map(item => ( 
+                    data.map(item => ( 
                             <Card key={item.idMeal} item={item}/>
                         ))
                     : ''
@@ -36,4 +36,4 @@ const Catalog = () => {
   
 };
 
-export default Catalog;
+export default AreaCatalog;

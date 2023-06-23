@@ -2,6 +2,7 @@ import React from 'react';
 import {BsFillCalendarHeartFill} from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import Filters from '../../components/Filters/Filters';
+import RandomMeal from '../../components/Filters/RandomMeal';
 
 const Header = () => {
     return (
@@ -10,11 +11,7 @@ const Header = () => {
             <div className="nav-wrapper content ">
             <Link to={'/'} className="brand-logo">The meal</Link>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li>
-                    <Link to={'/'} className='favorites'>
-                        <BsFillCalendarHeartFill fill='red' style={{fontSize: '28px'}}/>
-                    </Link>
-                </li>
+                <RandomMeal/>
             </ul>
             </div>
       </nav>

@@ -16,6 +16,10 @@
 a{
     color: #fff !important;
 }
+form{
+  display: flex;
+  gap: 15px;
+}
 .favorites{
     margin-top: 10px !important;
 }
@@ -56,6 +60,9 @@ a{
 }
 .btn:hover{
     background-color: rgb(28, 144, 38);
+}
+.btn:active{
+  background-color: rgb(21, 112, 29);
 }
 
 .btn__small{
@@ -103,7 +110,7 @@ a{
     font-size: 16px;
     font-weight: 500;
     color: rgb(28, 144, 38); 
-    margin: 0 0 1rem !important;
+    margin: 1.5rem 0 !important;
     text-align: center;
 
     position: relative;
@@ -130,6 +137,32 @@ a{
         right: 27%;
     }
    }
+
+   .title-field {
+    position: relative !important;
+}
+
+.reset-title {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+    right: 110px !important;
+    z-index: 5 !important;
+}
+
+.ingridient-field{
+  position: relative !important;
+}
+
+.reset-ingridient{
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+  right: 110px !important;
+  z-index: 5 !important;
+}
+
+
 
 
 

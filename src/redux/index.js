@@ -17,6 +17,7 @@ import { areaReducer } from "./reducers/area";
 import { randomReducer } from "./reducers/random";
 import { ingridientReducer } from "./reducers/ingridient";
 import { searchTitleReducer } from "./reducers/searchTitle";
+import { searchAreaReducer } from "./reducers/searchArea";
 
 
 const persistConfig = {
@@ -33,6 +34,7 @@ const persistConfig = {
     random: randomReducer,
     ingridient: ingridientReducer,
     searchTitle: searchTitleReducer,
+    searchArea: searchAreaReducer,
     
   })
 
