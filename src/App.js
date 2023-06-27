@@ -13,7 +13,7 @@ import AreaCatalog from './pages/AreaCatalog/AreaCatalog';
 function App() {
   return (
     <div className="App">
-     <Routes>
+     <Routes basename='/the-meal'>
         <Route path={''} element={<Layout/>}>
           <Route path="/" element={<Home/>}/>
           <Route path="/catalog/search/:title" element={<Catalog/>}/>
