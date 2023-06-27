@@ -9,7 +9,7 @@ import {store, persistor} from './redux/index';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter basename='/the-meal'>
+  <BrowserRouter basename='/the-meal/'>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <App />
