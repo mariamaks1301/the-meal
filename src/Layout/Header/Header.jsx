@@ -7,12 +7,14 @@ import RandomMeal from '../../components/Filters/RandomMeal';
 const Header = () => {
     return (
         <>
-        <nav className='#000000 black'>
+        <nav className='#000000 black navbar'>
             <div className="nav-wrapper content ">
-            <Link to={'/'} className="brand-logo">The meal</Link>
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <RandomMeal/>
-            </ul>
+                <Link to={'/'} className="brand-logo">The meal</Link>
+                <ul id="nav-mobile" className=" hide-on-med-and-down right row">
+                    <li>
+                        <RandomMeal/>
+                    </li>
+                </ul>
             </div>
       </nav>
        <Filters/>

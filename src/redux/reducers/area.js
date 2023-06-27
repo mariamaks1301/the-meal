@@ -15,21 +15,7 @@ export const getAllAreas = createAsyncThunk(
     } 
 )
 
-export const getMealsByArea = createAsyncThunk(
-    'area/getMealsByArea',
-    async(area, {rejectWithValue})=>{
-        try {
-            const res =  await axios(`filter.php?a=${area}`)
-            
-        
 
-            return res.data.meals
-            
-        } catch (error) {
-            return rejectWithValue(error.message)
-        }
-    } 
-)
 
 const initialState = {
     data: [],

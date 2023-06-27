@@ -19,11 +19,6 @@ const Card = ({item}) => {
                 <span className="card-title activator white-text text-darken-4">{item.strMeal.slice(0, 17)}...</span>
                 <button className='btn btn__small white-text'><Link onClick={()=> dispatch(getRecipeById(item.idMeal))} to={`/recipe/${item.idMeal}`}>See recipe</Link></button>
             </div>
-
-            <div className='card-favorites'>
-                <AiOutlineHeart width={'2em'} height={'2em'} />
-            </div>
-
         </div>
 
     );
